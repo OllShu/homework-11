@@ -25,6 +25,18 @@ public class Main {
         return applicationVersion;
     }
 
+    public static int calculateNumberDeliveryDays (int deliveryDistance) {
+        int deliveryDay;
+        if (deliveryDistance < 20) {
+            deliveryDay = 1;
+        } else if ((deliveryDistance - 20) % 40 == 0) {
+            deliveryDay = 1 + (deliveryDistance - 20) / 40;
+        } else {
+            deliveryDay = 2 + (deliveryDistance - 20) / 40;
+        }
+        return deliveryDay;
+    }
+
     public static void main(String[] args) {
         int year = 2020;
         checkLeapYear(year);
@@ -45,6 +57,13 @@ public class Main {
         findOS(clientOS);
         findYear(clientDeviceYear);
        System.out.println("Установите "+findYear(clientDeviceYear)+" версию приложения для "+findOS(clientOS)+" по ссылке");
+
+        System.out.println("_________________________________________");
+
+        System.out.println("          Задание 3");
+
+        int deliveryDistance = 21;
+        System.out.println("Доставка займет дней всего: " + calculateNumberDeliveryDays(deliveryDistance));
 
         System.out.println("_________________________________________");
     }
